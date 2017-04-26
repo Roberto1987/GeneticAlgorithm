@@ -1,0 +1,13 @@
+
+
+Table of corrispondece:
+
+Genome:
+CC = 1  :00
+DC = 2  :10
+CD = 3  :01
+DD = 4  :11
+
+Game moves;
+C: 0
+D: 1
