@@ -60,7 +60,7 @@ public class Grapher {
 
 
 
-                File f = new File("res/images/image"+s+".png");
+                File f = new File(SystemConstants.IMAGE_PATH+"image"+s+".png");
                 try {
 					ChartUtilities.saveChartAsJPEG(f, chart, 1200, 800);
 				} catch (IOException e) {

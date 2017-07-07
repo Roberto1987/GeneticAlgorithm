@@ -11,7 +11,7 @@ import utility.UtilityMethods;
  * 
  * @author rob
  * 
- * Implementation of an individual: it starts as a random generated chromosome and past and implements comparabel, used to
+ * Implementation of an individual: it starts as a random generated chromosome and past and implements comparable, used to
  * sort the array representing the total population; it also implements the operation of playing games and updating its
  * own status
  *

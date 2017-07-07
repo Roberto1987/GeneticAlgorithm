@@ -18,7 +18,7 @@ import utility.UtilityMethods;
  */
 public class MatchingTable {
 
-	private String address =  "res/";
+
 	private static MatchingTable matchingTable;
 	private Triple[] genomeCode;
 	static private boolean load;
@@ -126,12 +126,12 @@ public class MatchingTable {
      */
     public void saveTable(){
     	try {
-    		FileOutputStream saveGenome = new FileOutputStream (address+"genome.data");
+    		FileOutputStream saveGenome = new FileOutputStream (SystemConstants.SOURCE_ADDRESS+"genome.data");
 			ObjectOutputStream out = new ObjectOutputStream(saveGenome);
 			out.writeObject(genomeCode);
 			out.close();
 			saveGenome.close();
-			System.out.println("Genome's file saved in "+address+" under genome.data's name");
+			System.out.println("Genome's file saved in "+SystemConstants.SOURCE_ADDRESS+" under genome.data's name");
 		} catch( Exception e) {
 			System.out.println("Throwed IO Exception on saving the genome");
 			e.printStackTrace();
@@ -152,7 +152,7 @@ public class MatchingTable {
 		FileInputStream loadGenome;
 		try {
 			Triple[] loadedGenome;
-			loadGenome = new FileInputStream(address+"genome.data");
+			loadGenome = new FileInputStream(SystemConstants.SOURCE_ADDRESS+"genome.data");
 
 			ObjectInputStream in = new ObjectInputStream(loadGenome);
 			tmp = in.readObject();
@@ -240,12 +240,11 @@ public class MatchingTable {
     /**
      * Print the best player's genome for each simulation
      * @param ind
-     * @param number
      */
 	public void createFiles(Individual ind[], int gen){
 		PrintWriter writer;
 		try {
-			writer = new PrintWriter("TopIndividual_"+gen+".txt", "UTF-8");
+			writer = new PrintWriter(SystemConstants.INDIVIDUALS_ADDRESS+"TopIndividual_"+gen+".txt", "UTF-8");
 			for(int k=0;k<SystemConstants.PRINT_NUMBER;k++){
 				writer.print((int)ind[k].getScore()+",");
 				if((k+1)%4==0){writer.println();}
@@ -284,22 +283,6 @@ public class MatchingTable {
 
 	}
 
-    /**
-     *
-     * @return
-     */
-
-	public String getAddress() {
-		return address;
-	}
-
-/**
- *
- * @param address
- */
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
 
 	}
